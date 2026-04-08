@@ -35,5 +35,4 @@ public class EmissaoCarbono {
     public void setConsumoCarne(double consumoCarne){
         this.consumoCarne = consumoCarne;
     }
-
 }
