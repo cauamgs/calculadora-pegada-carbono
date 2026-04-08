@@ -23,4 +23,17 @@ public class EmissaoCarbono {
     public double getConsumoCarne() {
         return consumoCarne;
     }
+
+    public void setConsumoEnergia(double consumoEnergia){
+        this.consumoEnergia = consumoEnergia;
+    }
+
+    public void setKmRodados(double kmRodados){
+        this.kmRodados = kmRodados;
+    }
+
+    public void setConsumoCarne(double consumoCarne){
+        this.consumoCarne = consumoCarne;
+    }
+
 }
