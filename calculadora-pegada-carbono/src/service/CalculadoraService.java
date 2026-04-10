@@ -9,6 +9,6 @@ public class CalculadoraService {
         double transporte = dados.getKmRodados() * 0.2;
         double alimentacao = dados.getConsumoCarne() * 2.5;
 
-        return energia + transporte + alimentacao;
+        return energia + transporte + alimentacao; // kiko lindp
     }
 }
