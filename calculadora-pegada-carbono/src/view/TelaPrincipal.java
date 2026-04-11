@@ -23,6 +23,14 @@ public class TelaPrincipal {
         campoEnergia.setBounds(120, 20, 200, 25);
         frame.add(campoEnergia);
 
+        JLabel labelTipo = new JLabel("Combustível:");
+        labelTipo.setBounds(20, 140, 100, 25);
+        frame.add(labelTipo);
+
+        JTextField campoTipo = new JTextField();
+        campoTipo.setBounds(120, 140, 200, 25);
+        frame.add(campoTipo);
+
         JLabel labelKm = new JLabel("Km rodados:");
         labelKm.setBounds(20, 60, 100, 25);
         frame.add(labelKm);
@@ -50,9 +58,10 @@ public class TelaPrincipal {
                 double energia = Double.parseDouble(campoEnergia.getText());
                 double km = Double.parseDouble(campoKm.getText());
                 double carne = Double.parseDouble(campoCarne.getText());
+                String tipoCombustivel = campoTipo.getText();
 
                 CalculadoraController controller = new CalculadoraController();
-                double resultado = controller.calcular(energia, km, carne);
+                double resultado = controller.calcular(energia, km, carne, tipoCombustivel);
 
                 JOptionPane.showMessageDialog(frame, "Emissão: " + resultado + " kg CO2");
 

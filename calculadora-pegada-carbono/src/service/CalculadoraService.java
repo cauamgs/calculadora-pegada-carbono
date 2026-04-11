@@ -5,10 +5,23 @@ import model.EmissaoCarbono;
 public class CalculadoraService {
 
     public double calcular(EmissaoCarbono dados) {
-        double energia = dados.getConsumoEnergia() * 0.5;
-        double transporte = dados.getKmRodados() * 0.2;
-        double alimentacao = dados.getConsumoCarne() * 2.5;
+        return calcularEnergia(dados) + calcularTransporte(dados);
+    }
 
-        return energia + transporte + alimentacao; // kiko lindp
+    private double calcularEnergia(EmissaoCarbono dados) {
+        return dados.getConsumoEnergia()*0.5;
+    }
+
+    private double calcularTransporte(EmissaoCarbono dados) {
+        switch (dados.getTipoCombustivel().toLowerCase()) {
+            case "gasolina":
+                return dados.getKmRodados() * 0.12;
+            case "diesel":
+                return dados.getKmRodados() * 0.15;
+            case "etanol":
+                return dados.getKmRodados() * 0.10;
+            default:
+                throw new IllegalArgumentException("Tipo inválido");
+        }
     }
 }
