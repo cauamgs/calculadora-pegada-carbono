@@ -10,10 +10,9 @@ public class TelaPrincipal {
 
         JFrame frame = new JFrame("Calculadora de Pegada de Carbono");
 
-        frame.setSize(400, 300);
+        frame.setSize(400, 350);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
-
 
         JLabel labelEnergia = new JLabel("Energia:");
         labelEnergia.setBounds(20, 20, 100, 25);
@@ -39,6 +38,14 @@ public class TelaPrincipal {
         campoKm.setBounds(120, 60, 200, 25);
         frame.add(campoKm);
 
+        JLabel labelConsumo = new JLabel("Consumo por litro:");
+        labelKm.setBounds(20, 60, 100, 25);
+        frame.add(labelKm);
+
+        JTextField campoConsumo = new JTextField();
+        campoKm.setBounds(120, 60, 200, 25);
+        frame.add(campoKm);
+
         JLabel labelCarne = new JLabel("Carne:");
         labelCarne.setBounds(20, 100, 100, 25);
         frame.add(labelCarne);
@@ -59,9 +66,11 @@ public class TelaPrincipal {
                 double km = Double.parseDouble(campoKm.getText());
                 double carne = Double.parseDouble(campoCarne.getText());
                 String tipoCombustivel = campoTipo.getText();
+                double consumoVeiculo = Double.parseDouble(campoConsumo.getText());
+                String tipoVeiculo = campoTipoVeiculo.getText();
 
                 CalculadoraController controller = new CalculadoraController();
-                double resultado = controller.calcular(energia, km, carne, tipoCombustivel);
+                double resultado = controller.calcular(energia, km, carne, tipoCombustivel, consumoVeiculo, tipoVeiculo, kmAviao);
 
                 JOptionPane.showMessageDialog(frame, "Emissão: " + resultado + " kg CO2");
 
