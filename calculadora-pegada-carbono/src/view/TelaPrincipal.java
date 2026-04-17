@@ -68,11 +68,11 @@ public class TelaPrincipal {
             try {
                 double energia         = Double.parseDouble(campoEnergia.getText());
                 double km              = Double.parseDouble(campoKm.getText());
-                double carne           = Double.parseDouble(campoCarne.getText());
+                String carne           = (String) comboComb.getSelectedItem();
                 String tipoCombustivel = (String) comboComb.getSelectedItem();
 
                 CalculadoraController controller = new CalculadoraController();
-                double resultado = controller.calcular(energia, km, carne, tipoCombustivel, 2, "teste", 4);
+                double resultado = controller.calcular(energia, km, carne, tipoCombustivel, "teste", 2 , 4, 6);
 
                 int arvores = (int) Math.ceil(resultado / 21.7);
                 JOptionPane.showMessageDialog(frame,

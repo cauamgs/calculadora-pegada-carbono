@@ -5,8 +5,8 @@ import service.CalculadoraService;
 
 public class CalculadoraController {
 
-    public double calcular(double energia, double km, double carne, String tipoCombustivel, double consumoVeiculo, String tipoVeiculo, double kmAviao) {
-        EmissaoCarbono dados = new EmissaoCarbono(energia, km, carne, tipoCombustivel, consumoVeiculo, tipoVeiculo, kmAviao);
+    public double calcular(double energia, double km, String carne, String tipoCombustivel, String tipoVeiculo, double kmAviao, double consumoGas, double kmTransportePublico) {
+        EmissaoCarbono dados = new EmissaoCarbono(energia, km, carne, tipoCombustivel, tipoVeiculo, kmAviao, consumoGas, kmTransportePublico);
         CalculadoraService service = new CalculadoraService();
 
         return service.calcular(dados);
