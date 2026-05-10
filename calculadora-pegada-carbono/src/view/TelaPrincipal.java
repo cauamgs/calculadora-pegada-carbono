@@ -238,7 +238,10 @@ public class TelaPrincipal {
         }
 
         JButton btnFinalizar = criarBotao("  Finalizar");
-        btnFinalizar.addActionListener(e -> cardLayout.show(mainPanel, "inicio"));
+        btnFinalizar.addActionListener(e -> {
+            resetarFormulario();
+            cardLayout.show(mainPanel, "inicio");
+        });
 
         JButton btnRecalcular = new JButton("  Recalcular");
         btnRecalcular.setFont(new Font("SansSerif", Font.BOLD, 14));
@@ -339,6 +342,25 @@ public class TelaPrincipal {
         return "medio";
     }
 
+
+    private void resetarFormulario() {
+        resetCampo(campoEletricidade,     "200");
+        resetCampo(campoGas,              "10");
+        resetCampo(campoKm,               "10000");
+        resetCampo(campoTransportePublico,"50");
+        resetCampo(campoVoos,             "0");
+        comboCombustivel.setSelectedIndex(0);
+        comboDieta.setSelectedIndex(0);
+        comboConsumo.setSelectedIndex(0);
+    }
+
+    private void resetCampo(JTextField field, String placeholder) {
+        field.setText(placeholder);
+        field.setForeground(Color.GRAY);
+        field.setBorder(BorderFactory.createCompoundBorder(
+                new LineBorder(BORDA_CAMPO, 1, true),
+                BorderFactory.createEmptyBorder(4, 10, 4, 10)));
+    }
 
     private JPanel criarCard(String numero, String titulo) {
         JPanel card = new JPanel();
